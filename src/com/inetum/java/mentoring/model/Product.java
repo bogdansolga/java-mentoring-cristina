@@ -3,7 +3,7 @@ package com.inetum.java.mentoring.model;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Product implements Serializable {
+public class Product implements Serializable, Comparable<Product> {
 
     private final long id;
     private final String name;
@@ -37,5 +37,10 @@ public class Product implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return Long.compare(id, o.id);
     }
 }
